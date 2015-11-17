@@ -14,11 +14,11 @@ public interface MemberService {
 	 * @param member
 	 * Save to DB Member model
 	 */
-	public void save(Member member);
+	public void add(Member member);
 	/**
 	 * @return
 	 * Return all the credentials from DB
 	 */
-	public List<Member> findAll();
+	public List<Member> getAll();
 		
 }

@@ -21,7 +21,7 @@ import mum.edu.service.MemberService;
 public class HomeController {
 
 	@Autowired
-	private MemberService customerService;
+	private MemberService memberService;
 
 	/**
 	 * @return

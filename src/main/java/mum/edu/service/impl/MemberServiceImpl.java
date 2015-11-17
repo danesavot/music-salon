@@ -20,23 +20,20 @@ public class MemberServiceImpl implements mum.edu.service.MemberService {
 	
  	@Autowired
 	private MemberRepository memberRepository;
-
- 	@Autowired
- 	CredentialsService credentialsService;
   	
   	/* (non-Javadoc)
   	 * @see mum.edu.service.MemberService#save(mum.edu.domain.Member)
   	 */
-  	public void save( Member member) {  		
-  		memberRepository.save(member);
+  	public void add( Member member) {  		
+  		memberRepository.add(member);
  	}
   	
   	
 	/* (non-Javadoc)
 	 * @see mum.edu.service.MemberService#findAll()
 	 */
-	public List<Member> findAll() {
-		return (List< Member>)memberRepository.findAll();
+	public List<Member> getAll() {
+		return (List< Member>)memberRepository.getAll();
 	}
 
 

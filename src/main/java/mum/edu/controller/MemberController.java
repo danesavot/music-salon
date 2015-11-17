@@ -63,7 +63,7 @@ public class MemberController {
 		memberToBeAdded.getCredentials().setAuthority(memberType);
 		memberToBeAdded.getCredentials().setEnabled(true);
 		
-		memberService.save(memberToBeAdded);
+		memberService.add(memberToBeAdded);
 		
 		model.addAttribute("member", memberToBeAdded);
 

@@ -16,8 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Dane
  *
  */
-@Service
-@Transactional 
+
 public class CredentialsServiceImpl implements mum.edu.service.CredentialsService {
 	
  	@Autowired
