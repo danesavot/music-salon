@@ -33,13 +33,21 @@ public class Music {
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="music_id")
-	private List<Category> catogaries = new ArrayList<Category>();
+	private List<Category> categories = new ArrayList<Category>();
 	
 	@Lob
 	@Basic(fetch = FetchType.LAZY)
 	private String lyrics;
 	
-	public Music(String title, String singer, String composer, String writer, Album album, List<Category> catogaries,
+	public Music(String title, String singer, String composer, String writer, String lyrics) {
+		super();
+		this.title = title;
+		this.singer = singer;
+		this.composer = composer;
+		this.writer = writer;
+	}
+	
+	public Music(String title, String singer, String composer, String writer, Album album,
 			String lyrics) {
 		super();
 		this.title = title;
@@ -47,7 +55,30 @@ public class Music {
 		this.composer = composer;
 		this.writer = writer;
 		this.album = album;
-		this.catogaries = catogaries;
+		this.lyrics = lyrics;
+	}
+	
+	public Music(String title, String singer, String composer, String writer, List<Category> categories,
+			String lyrics) {
+		super();
+		this.title = title;
+		this.singer = singer;
+		this.composer = composer;
+		this.writer = writer;
+		this.categories = categories;
+		this.lyrics = lyrics;
+	}
+	
+	public Music(String title, String singer, String composer, String writer, Album album, List<Category> categories,
+			String lyrics) {
+		super();
+		this.title = title;
+		this.singer = singer;
+		this.composer = composer;
+		this.writer = writer;
+		this.album = album;
+		this.categories = categories;
+		this.lyrics = lyrics;
 	}
 
 	public int getId() {
@@ -99,11 +130,11 @@ public class Music {
 	}
 
 	public List<Category> getCatogaries() {
-		return catogaries;
+		return categories;
 	}
 
-	public void setCatogaries(List<Category> catogaries) {
-		this.catogaries = catogaries;
+	public void setCatogaries(List<Category> categories) {
+		this.categories = categories;
 	}
 
 	public String getLyrics() {

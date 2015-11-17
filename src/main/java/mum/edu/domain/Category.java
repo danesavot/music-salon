@@ -12,10 +12,17 @@ public class Category {
 	private int id;
 
 	private String category;
+	private boolean navigator;
 
 	public Category(String category) {
 		super();
 		this.category = category;
+	}
+
+	public Category(String category, boolean navigator) {
+		super();
+		this.category = category;
+		this.navigator = navigator;
 	}
 
 	public int getId() {
@@ -34,5 +41,11 @@ public class Category {
 		this.category = category;
 	}
 	
-	
+	public boolean isNavigator() {
+		return navigator;
+	}
+
+	public void setNavigator(boolean navigator) {
+		this.navigator = navigator;
+	}
 }
