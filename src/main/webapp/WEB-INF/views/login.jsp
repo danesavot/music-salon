@@ -13,21 +13,22 @@
 		<div>
     		<div> 
 			  	<div>
-			  	<c:if test="${not empty error}">
-					<div class="alert alert-danger">
-						<spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br />
-					</div>
-				</c:if>
+
 			    	<form action="<spring:url value="/postLogin"></spring:url>" method="post">
-                    <fieldset style="width:200px; margin: auto">
+                    <fieldset  style="width:350px; margin: auto">
+					  	<c:if test="${not empty error}">
+							<div class="alert alert-danger">
+								<spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br />
+							</div>
+						</c:if>                    
                     	<legend><spring:message code="login.login"/></legend>
 			    	  	<p>
-			    		    <input placeholder="User Name" name='username' type="text">
+			    		    <input placeholder="User Name" class ="form-control" name='username' type="text">
 			    		</p>
 			    		<p>
-			    			<input placeholder="Password" name='password'  type="password" value="">
+			    			<input placeholder="Password" class ="form-control" name='password'  type="password" value="">
 			    		</p>
-			    		<input class="btn btn-lg btn-success btn-mini" type="submit" value='<spring:message code="login"></spring:message>'>
+			    		<input class="btn btn-primary btn-block btn-flat" type="submit" value='<spring:message code="login"></spring:message>'>
 			    	</fieldset>
 			      	</form>
 			    </div>

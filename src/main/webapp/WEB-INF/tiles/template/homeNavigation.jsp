@@ -20,6 +20,8 @@
   </c:when>
   <c:otherwise>
 	<li><a href="<spring:url value="/welcome"/>"><spring:message code="header.home" /></a></li>
+	<li><a href="<spring:url value="/album"/>"><spring:message code="header.album" /></a></li>
+	<li><a href="<spring:url value="/category"/>"><spring:message code="header.category" /></a></li>
 	<li><a href="<spring:url value="/signup"/>"><spring:message code="header.signup" /></a></li>
 	<li><a href="<spring:url value="/login"/>"><spring:message code="header.login" /></a></li>
   </c:otherwise>

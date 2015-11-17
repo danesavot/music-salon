@@ -1,5 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<p>&copy; Crema Coperation 2015</p>
+<p>&copy; Music Salon Coperation 2015</p>
 <%-- <form:select path="?language=">
 	<form:option value="en" label="EN"></form:option>
 	<form:option value="ru_ua" label="UA"></form:option>
