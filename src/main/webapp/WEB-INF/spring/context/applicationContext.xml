@@ -1,73 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-   xmlns:tx="http://www.springframework.org/schema/tx"
-   xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-    xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
       http://www.springframework.org/schema/beans 
       http://www.springframework.org/schema/beans/spring-beans.xsd
  	  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
- 
- 
- <jpa:repositories base-package="mum.edu.repository" />
- 
-   <bean id="entityManager" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-      <property name="dataSource" ref="dataSource" />
-      <property name="packagesToScan" value="mum.edu.domain" />
-      <property name="jpaVendorAdapter">
-         <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
-      </property>
-      <property name="jpaProperties">
-         <props>
-            <prop key="hibernate.hbm2ddl.auto">create</prop>
-            <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
-            <prop key="hibernate.hbm2ddl.import_files">populate.sql</prop>
-            
-         </props>
-      </property>
-   </bean>
- 
- <!-- CONSOLE -->
-<!--  <bean id="h2Server" class="org.h2.tools.Server" factory-method="createTcpServer" init-method="start" destroy-method="stop" depends-on="h2WebServer">
-    <constructor-arg value="-tcp,-tcpAllowOthers,-tcpPort,9092"/>
-</bean>
-<bean id="h2WebServer" class="org.h2.tools.Server" factory-method="createWebServer" init-method="start" destroy-method="stop">
-    <constructor-arg value="-web,-webAllowOthers,-webPort,8082"/>
-</bean> -->
- 
-     <!--bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="org.h2.Driver"/>
-        <property name="url" value="jdbc:h2:tcp://localhost/~/SECURITY;DB_CLOSE_DELAY=-1;MODE=MySQL" />
-    </bean-->
- <!-- ;INIT=runscript from 'classpath:create.sql'\;runscript from 'classpath:populate.sql' -->
- 
- 	<bean id="dataSource"
+
+	<!-- Scan for transaction-based resources -->
+	<context:component-scan base-package="mum.edu"></context:component-scan>
+	
+	<tx:annotation-driven transaction-manager="txManager" />
+	
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- Hibernate SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties" ref="hibernateProperties" />
+		<property name="packagesToScan" value="mum.edu.domain"></property>
+		
+		<!-- OR mapping files. -->
+		<!-- <property name="annotatedClasses"> <list> <value>mum.edu.domain.Album</value> 
+			<value>mum.edu.domain.Category</value> <value>mum.edu.domain.Music</value> 
+			</list> </property> -->
+	</bean>
+
+
+	<!-- the datasource -->
+	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/cremacafe" />
+		<property name="url" value="jdbc:mysql://localhost:3306/music_salon" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
 
- 
- 
- 
-   <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-      <property name="entityManagerFactory" ref="entityManager" />
-   </bean>
-   
-   <!-- Scan for  transaction-based resources -->
-   	<context:component-scan base-package="mum.edu.service" />
-    	<context:component-scan base-package="mum.edu.domain" />
-    	<context:component-scan base-package="mum.edu.repository" />
-     
-   <tx:annotation-driven transaction-manager="transactionManager"/>
- 
-   <bean id="persistenceExceptionTranslationPostProcessor"
-      class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
- 
+	<!-- hibernate Properties -->
+	<bean id="hibernateProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="properties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect
+				</prop>
+				<prop key="connection.pool_size">1</prop>
+				<!-- need to remove this otherwise transaction will not work -->
+				<!-- <prop key="hibernate.current_session_context_class">thread</prop> -->
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="persistenceExceptionTranslationPostProcessor"
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
 </beans>
