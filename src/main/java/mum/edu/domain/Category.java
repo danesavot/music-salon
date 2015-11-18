@@ -1,51 +1,70 @@
 package mum.edu.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private long id;
 
-	private String category;
-	private boolean navigator;
+	private String name;
+	private boolean navigation;
+	
+	@ManyToMany(mappedBy="categoryList")
+	private List<Music> musicList = new ArrayList<Music>();
 
-	public Category(String category) {
+	public Category() {
 		super();
-		this.category = category;
 	}
 
-	public Category(String category, boolean navigator) {
-		super();
-		this.category = category;
-		this.navigator = navigator;
+	public List<Music> getMusicList() {
+		return musicList;
 	}
 
-	public int getId() {
+	public void setMusicList(List<Music> musicList) {
+		this.musicList = musicList;
+	}
+
+	public Category(String name) {
+		super();
+		this.name = name;
+	}
+
+	public Category(String name, boolean navigation) {
+		super();
+		this.name = name;
+		this.navigation = navigation;
+	}
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getCategory() {
-		return category;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
-	public boolean isNavigator() {
-		return navigator;
+	public boolean isNavigation() {
+		return navigation;
 	}
 
-	public void setNavigator(boolean navigator) {
-		this.navigator = navigator;
+	public void setNavigation(boolean navigator) {
+		this.navigation = navigator;
 	}
 }

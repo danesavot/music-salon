@@ -1,5 +1,6 @@
 package mum.edu.domain;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,34 +12,61 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Music {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private long id;
 
 	private String title;
 	private String singer;
 	private String composer;
 	private String writer;
+	private File file;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="album_id")
 	private Album album;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name="music_id")
-	private List<Category> categories = new ArrayList<Category>();
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name="music_category")
+	private List<Category> categoryList = new ArrayList<Category>();
 	
 	@Lob
 	@Basic(fetch = FetchType.LAZY)
 	private String lyrics;
 	
+	public File getFile() {
+		return file;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
+	}
+
+	public Music() {
+		super();
+	}
+
+	public Music(String title, String singer, String composer, String writer, File file, Album album,
+			List<Category> categoryList, String lyrics) {
+		super();
+		this.title = title;
+		this.singer = singer;
+		this.composer = composer;
+		this.writer = writer;
+		this.file = file;
+		this.album = album;
+		this.categoryList = categoryList;
+		this.lyrics = lyrics;
+	}
+
 	public Music(String title, String singer, String composer, String writer, String lyrics) {
 		super();
 		this.title = title;
@@ -58,18 +86,18 @@ public class Music {
 		this.lyrics = lyrics;
 	}
 	
-	public Music(String title, String singer, String composer, String writer, List<Category> categories,
+	public Music(String title, String singer, String composer, String writer, List<Category> categoryList,
 			String lyrics) {
 		super();
 		this.title = title;
 		this.singer = singer;
 		this.composer = composer;
 		this.writer = writer;
-		this.categories = categories;
+		this.categoryList = categoryList;
 		this.lyrics = lyrics;
 	}
 	
-	public Music(String title, String singer, String composer, String writer, Album album, List<Category> categories,
+	public Music(String title, String singer, String composer, String writer, Album album, List<Category> categoryList,
 			String lyrics) {
 		super();
 		this.title = title;
@@ -77,15 +105,15 @@ public class Music {
 		this.composer = composer;
 		this.writer = writer;
 		this.album = album;
-		this.categories = categories;
+		this.categoryList = categoryList;
 		this.lyrics = lyrics;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -129,12 +157,12 @@ public class Music {
 		this.album = album;
 	}
 
-	public List<Category> getCatogaries() {
-		return categories;
+	public List<Category> getCategoryList() {
+		return categoryList;
 	}
 
-	public void setCatogaries(List<Category> categories) {
-		this.categories = categories;
+	public void setCategoryList(List<Category> categoryList) {
+		this.categoryList = categoryList;
 	}
 
 	public String getLyrics() {

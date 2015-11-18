@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
 public class Album {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private long id;
 
 	private String albumName;
 	@OneToMany(mappedBy="album", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -28,6 +28,9 @@ public class Album {
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	
+	public Album() {
+		super();
+	}
 	public Album(String albumName, List<Music> musicList, String publisher, Date date) {
 		super();
 		this.albumName = albumName;
@@ -35,10 +38,10 @@ public class Album {
 		this.publisher = publisher;
 		this.date = date;
 	}
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getAlbumName() {
