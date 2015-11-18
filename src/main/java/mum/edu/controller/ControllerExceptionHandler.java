@@ -35,7 +35,7 @@ public class ControllerExceptionHandler {
 	     * a ModelAndView object mapped with model and view name
 	     * @throws Exception
 	     */
-	    @ExceptionHandler(value = MusicException.class)
+	    @ExceptionHandler(value = ControllerException.class)
 	    public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
 	        // If the exception is annotated with @ResponseStatus rethrow it and let
 	        // the framework handle it - like the OrderNotFoundException example
