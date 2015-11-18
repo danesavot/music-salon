@@ -10,10 +10,10 @@ public interface CategoryService {
 	
 	public abstract List<Category> getCategoryList();
 	
-	public abstract Category getCategory(int id);
+	public abstract Category getCategory(long id);
 
-	public abstract void updateCategory(int categoryId, Category category);
+	public abstract void updateCategory(Category category);
 
-	public abstract void deleteCategory(Category category);
+	public abstract void deleteCategory(long id);
 	
 }

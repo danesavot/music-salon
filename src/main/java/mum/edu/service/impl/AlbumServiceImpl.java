@@ -2,35 +2,35 @@ package mum.edu.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import mum.edu.domain.Album;
 import mum.edu.repository.AlbumRepository;
 import mum.edu.service.AlbumService;
 
+@Service
 public class AlbumServiceImpl implements AlbumService {
-	private AlbumRepository albumDao;
-	
-	public void setAlbumDao(AlbumRepository albumDao){
-		this.albumDao = albumDao;
-	}
+	@Autowired
+	private AlbumRepository albumRepository;
 	
 	public void addNewAlbum(Album album){
-		albumDao.add(album);
+		albumRepository.add(album);
 	}
 	
 	public List<Album> getAlbumList() {
-		return albumDao.getAlbumList();
+		return albumRepository.getAll();
 	}
 	
-	public Album getAlbum(int id){
-		return albumDao.get(id);
+	public Album getAlbum(long id){
+		return albumRepository.get(id);
 	}
 
-	public void updateAlbum(int albumId, Album album){
-		albumDao.update(albumId, album);
+	public void updateAlbum(Album album){
+		albumRepository.update(album);
 	}
 
-	public void deleteAlbum(Album album){
-		albumDao.delete(album);
+	public void deleteAlbum(long id){
+		albumRepository.delete(id);
 	}
-	
 }

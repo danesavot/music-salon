@@ -10,10 +10,9 @@ public interface AlbumService {
 	
 	public abstract List<Album> getAlbumList();
 	
-	public abstract Album getAlbum(int id);
+	public abstract Album getAlbum(long id);
 
-	public abstract void updateAlbum(int albumId, Album album);
+	public abstract void updateAlbum(Album album);
 
-	public abstract void deleteAlbum(Album album);
-	
+	public abstract void deleteAlbum(long id);
 }
