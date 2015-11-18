@@ -73,7 +73,7 @@
 	
 	<definition name="albums" extends="baseLayout">
 		<put-attribute name="title" value="Add Album" />
- 		<put-attribute name="body" value="/WEB-INF/views/admin/albums.jsp" />
+ 		<put-attribute name="body" value="/WEB-INF/views/albums.jsp" />
 	</definition>
 
 	<!-- for music pages -->

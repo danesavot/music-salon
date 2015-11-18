@@ -15,6 +15,10 @@
 
 <spring:url value="/resources/css/style.css" var="mainCss" />
 <spring:url value="/resources/css/bootstrap.css" var="bootstrap" />
+<spring:url value="/resources/js/bootstrap.js" var="bootstrapjs" />
+<spring:url value="/resources/js/jquery-1.11.3.js" var="jquery" />
+<script src="${jquery}"></script>
+<script src="${bootstrapjs}"></script>
 <link href="${mainCss}" rel="stylesheet" />
 <link href="${bootstrap}" rel="stylesheet" />
 
