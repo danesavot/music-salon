@@ -15,7 +15,9 @@
 
 	<mvc:annotation-driven />
 	<context:component-scan base-package="mum.edu.controller" />
-
+	
+	<context:property-placeholder location="classpath:fileupload.properties" />
+	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
