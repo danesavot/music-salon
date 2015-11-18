@@ -13,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Album {
@@ -20,17 +23,22 @@ public class Album {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	private String albumName;
+	@NotEmpty(message = "{NotEmpty}")
+	private String name;
 	@OneToMany(mappedBy="album", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Music> musicList = new ArrayList<Music>(); 
 	
 	private String publisher;
 	@Temporal(TemporalType.DATE)
 	private Date date;
-	
-	public Album(String albumName, List<Music> musicList, String publisher, Date date) {
+		
+	public Album() {
 		super();
-		this.albumName = albumName;
+		// TODO Auto-generated constructor stub
+	}
+	public Album(String name, List<Music> musicList, String publisher, Date date) {
+		super();
+		this.name = name;
 		this.musicList = musicList;
 		this.publisher = publisher;
 		this.date = date;
@@ -41,11 +49,11 @@ public class Album {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getAlbumName() {
-		return albumName;
+	public String getName() {
+		return name;
 	}
-	public void setAlbumName(String albumName) {
-		this.albumName = albumName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public List<Music> getMusicList() {
 		return musicList;

@@ -34,9 +34,10 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T>  {
 		return t;
 	}
 	@Override
-	public boolean delete(long id) {
+	public boolean delete(T t) {
 		Session session = sessionFactory.getCurrentSession();
-		session.delete((T) session.load(type, id));
+		//session.delete((T) session.load(type, id));
+		session.delete(t);
 		return true;
 	}
 	@Override

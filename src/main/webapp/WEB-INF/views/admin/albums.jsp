@@ -8,32 +8,42 @@
 <title>Music Salon</title>
 </head>
 <body>
+
 <div class="container">
     <div class="row">
 		<div>
     		<div> 
 			  	<div>
+			  	
+			  	All Albumb
 
-			    	<form action="<spring:url value="/postLogin"></spring:url>" method="post">
+<%-- 			    	<form action="<spring:url value="/albums"></spring:url>" method="post">
                     <fieldset  style="width:350px; margin: auto">
 					  	<c:if test="${not empty error}">
 							<div class="alert alert-danger">
 								<spring:message code="AbstractUserDetailsAuthenticationProvider.badCredentials"/><br />
 							</div>
 						</c:if>                    
-                    	<legend><spring:message code="login.login"/></legend>
+                    	<legend><spring:message code="newAlbum.legend"/></legend>
 			    	  	<p>
-			    		    <input placeholder="User Name" class ="form-control" name='username' type="text">
+			    		    <input placeholder="Name" class ="form-control" name='name' type="text">
 			    		</p>
 			    		<p>
-			    			<input placeholder="Password" class ="form-control" name='password'  type="password" value="">
+			    			<input placeholder="Publisher" class ="form-control" name='publisher'  type="text" value="">
 			    		</p>
-			    		<input class="btn btn-primary btn-block btn-flat" type="submit" value='<spring:message code="login"></spring:message>'>
+			    		
+			    		<p>
+			    			<input placeholder="Date" class ="form-control" name='date'  type="date" value="">
+			    		</p>
+			    		
+			    		<input class="btn btn-primary btn-block btn-flat" type="submit" value='<spring:message code="newAblum.create"/>'>
 			    	</fieldset>
-			      	</form>
+			      	</form> --%>
 			    </div>
 			</div>
 		</div>
 	</div>
 </div>
+
 </body>
+</html>
