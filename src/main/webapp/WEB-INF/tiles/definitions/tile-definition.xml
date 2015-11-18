@@ -65,6 +65,16 @@
 		<put-attribute name="title" value="Sign up" />
  		<put-attribute name="body" value="/WEB-INF/views/freelancers.jsp" />
 	</definition>	
+	
+	<definition name="newAlbum" extends="baseLayout">
+		<put-attribute name="title" value="Add Album" />
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/newAlbum.jsp" />
+	</definition>
+	
+	<definition name="albums" extends="baseLayout">
+		<put-attribute name="title" value="Add Album" />
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/albums.jsp" />
+	</definition>
 
 	<!-- for music pages -->
 	<definition name="category" extends="baseLayout">
@@ -74,7 +84,7 @@
 	
 	<definition name="addCategory" extends="baseLayout">
 		<put-attribute name="title" value="Add Category" />
- 		<put-attribute name="body" value="/WEB-INF/views/addCategory.jsp" />
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/addCategory.jsp" />
 	</definition>
 	
 	<definition name="categoryDetail" extends="baseLayout">
@@ -84,7 +94,7 @@
 	
 	<definition name="addMusic" extends="baseLayout">
 		<put-attribute name="title" value="Add Music" />
- 		<put-attribute name="body" value="/WEB-INF/views/addMusic.jsp" />
+ 		<put-attribute name="body" value="/WEB-INF/views/admin/addMusic.jsp" />
 	</definition>
 	
 	<definition name="music" extends="baseLayout">

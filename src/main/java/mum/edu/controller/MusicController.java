@@ -79,8 +79,8 @@ public class MusicController {
 	}
 	
 	@RequestMapping(value="/music/delete", method=RequestMethod.POST)
-	public String delete(int musicId) {
-		musicService.deleteMusic(musicId);
+	public String delete(Music music) {
+		musicService.deleteMusic(music);
 		return "redirect:/music";
 	}
 	

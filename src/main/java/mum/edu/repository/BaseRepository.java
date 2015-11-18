@@ -8,7 +8,7 @@ public interface BaseRepository<T> {
 
 	T update(T t);
 
-	boolean delete(long id);
+	boolean delete(T t);
 
 	T get(long id);
 	

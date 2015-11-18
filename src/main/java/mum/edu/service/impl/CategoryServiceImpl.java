@@ -38,7 +38,7 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 	
 	@Override
-	public void deleteCategory(long id){
-		categoryDao.delete(id);
+	public void deleteCategory(Category category){
+		categoryDao.delete(category);
 	}	
 }

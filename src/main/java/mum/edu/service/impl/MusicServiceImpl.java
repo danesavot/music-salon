@@ -59,8 +59,8 @@ public class MusicServiceImpl implements MusicService{
 	}
 	
 	@Override
-	public void deleteMusic(long id){
-		musicDao.delete(id);
+	public void deleteMusic(Music music){
+		musicDao.delete(music);
 	}
 
 }

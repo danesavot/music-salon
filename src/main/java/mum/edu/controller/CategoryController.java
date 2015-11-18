@@ -59,8 +59,8 @@ public class CategoryController {
 	}
 	
 	@RequestMapping(value="/category/delete", method=RequestMethod.POST)
-	public String delete(int categoryId) {
-		categoryService.deleteCategory(categoryId);
+	public String delete(Category category) {
+		categoryService.deleteCategory(category);
 		return "redirect:/category";
 	}
 

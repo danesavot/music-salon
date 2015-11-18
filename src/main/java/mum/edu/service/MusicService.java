@@ -20,5 +20,5 @@ public interface MusicService {
 
 	public abstract void updateMusic(Music music);
 
-	public abstract void deleteMusic(long id);
+	public abstract void deleteMusic(Music music);
 }
