@@ -66,4 +66,35 @@
  		<put-attribute name="body" value="/WEB-INF/views/freelancers.jsp" />
 	</definition>	
 
+	<!-- for music pages -->
+	<definition name="category" extends="baseLayout">
+		<put-attribute name="title" value="Caterogy List" />
+ 		<put-attribute name="body" value="/WEB-INF/views/categoryList.jsp" />
+	</definition>
+	
+	<definition name="addCategory" extends="baseLayout">
+		<put-attribute name="title" value="Add Category" />
+ 		<put-attribute name="body" value="/WEB-INF/views/addCategory.jsp" />
+	</definition>
+	
+	<definition name="categoryDetail" extends="baseLayout">
+		<put-attribute name="title" value="Category Detail" />
+ 		<put-attribute name="body" value="/WEB-INF/views/categoryDetail.jsp" />
+	</definition>
+	
+	<definition name="addMusic" extends="baseLayout">
+		<put-attribute name="title" value="Add Music" />
+ 		<put-attribute name="body" value="/WEB-INF/views/addMusic.jsp" />
+	</definition>
+	
+	<definition name="music" extends="baseLayout">
+		<put-attribute name="title" value="Music List" />
+ 		<put-attribute name="body" value="/WEB-INF/views/musicList.jsp" />
+	</definition>
+
+	<definition name="musicDetail" extends="baseLayout">
+		<put-attribute name="title" value="Music Detail" />
+ 		<put-attribute name="body" value="/WEB-INF/views/musicDetail.jsp" />
+	</definition>
+
 </tiles-definitions>
