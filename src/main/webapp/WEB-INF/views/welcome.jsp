@@ -24,7 +24,6 @@
  				  <!-- WHICH ONE? depends on basic form OR CUSTOM -->
 				</security:authorize>
 
-		 
 				</div>	
 	 			<div class="pull-left"> <h3><spring:message code="welcome.SpecialBlurb"></spring:message></h3> </div>
 		</div>	

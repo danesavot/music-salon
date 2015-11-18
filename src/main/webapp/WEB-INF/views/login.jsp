@@ -23,7 +23,7 @@
 						</c:if>                    
                     	<legend><spring:message code="login.login"/></legend>
 			    	  	<p>
-			    		    <input placeholder="User Name" class ="form-control" name='username' type="text">
+				    		    <input placeholder="User Name" class ="form-control" name='username' type="text">
 			    		</p>
 			    		<p>
 			    			<input placeholder="Password" class ="form-control" name='password'  type="password" value="">
