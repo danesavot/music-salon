@@ -34,7 +34,7 @@ public class AlbumController {
 		return "newAlbum";
 	}
 
-	@RequestMapping(value = { "/", "" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/new", "" }, method = RequestMethod.POST)
 	public String addAlbum(Model model, @ModelAttribute("newAlbum") @Valid Album album, BindingResult result,
 			HttpServletRequest request) {
 
