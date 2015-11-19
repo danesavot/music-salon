@@ -21,12 +21,14 @@
   <c:otherwise>
 	<li><a href="<spring:url value="/welcome"/>"><spring:message code="header.home" /></a></li>
 	<li><a href="<spring:url value="/albums"/>"><spring:message code="header.album" /></a></li>
-	<li><a href="<spring:url value="/category"/>"><spring:message code="header.category" /></a></li>
+	<li><a href="<spring:url value="/categories"/>"><spring:message code="header.category" /></a></li>
 	
 	<li class="dropdown">
     	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
           <li><a href="<spring:url value="/albums/new"/>"><spring:message code="header.admin.newAlbum" /></a></li>
+          <li><a href="<spring:url value="/categories/new"/>"><spring:message code="header.admin.newCategory" /></a></li>
+          <li><a href="<spring:url value="/music/new"/>"><spring:message code="header.admin.newMusic" /></a></li>
         </ul>
     </li>	
 	
