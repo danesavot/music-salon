@@ -1,6 +1,8 @@
 package mum.edu.repository.impl;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -18,11 +20,11 @@ public class MusicRepositoryImpl extends BaseRepositoryImpl<Music> implements Mu
 	protected SessionFactory sessionFactory;
 
 	@SuppressWarnings("unchecked")
-	public List<Music> getMusicList(Category category) {
+	public Set<Music> getMusicList(Category category) {
         Query query = sessionFactory.getCurrentSession().createQuery("select m from Music m join m.categoryList c where c.id = :categoryId");
         query.setParameter("categoryId", category.getId());
 		List<Music> musicList = query.list();
-		return musicList;
+		return new HashSet<Music>(musicList);
 	}
 
 }

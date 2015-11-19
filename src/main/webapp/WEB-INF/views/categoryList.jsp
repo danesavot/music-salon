@@ -10,14 +10,14 @@
 <body>
 	<h1>Categories List</h1>
 	<table>
-	<c:forEach var="categories" items="${category}">
+	<c:forEach var="category" items="${category}">
 	<tr>
-		<td><a href="category/${categories.id}">${categories.name}</a></td>
-		<td><!-- <a href="category/${categories.id}">edit</a> --></td>
+		<td><a href="categories/${category.id}">${category.name}</a></td>
+		<td><!-- <a href="categories/${category.id}">edit</a> --></td>
 	</tr>
 	</c:forEach>
 	</table>
 	
-	<a href="addCategory"> Add a new Category</a>
+	<a href="categories/new"> Add a new Category</a>
 </body>
 </html>

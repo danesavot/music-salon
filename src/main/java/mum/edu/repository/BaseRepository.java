@@ -1,6 +1,6 @@
 package mum.edu.repository;
 
-import java.util.List;
+import java.util.Set;
 
 public interface BaseRepository<T> {
 	
@@ -12,6 +12,6 @@ public interface BaseRepository<T> {
 
 	T get(long id);
 	
-	List<T> getAll();
+	Set<T> getAll();
 
 }

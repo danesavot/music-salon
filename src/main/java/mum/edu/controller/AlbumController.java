@@ -1,14 +1,13 @@
 package mum.edu.controller;
 
 import java.io.File;
-import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -65,7 +64,7 @@ public class AlbumController {
 	@RequestMapping(value = { "/", "" }, method = RequestMethod.GET)
 	public String getAlbums(Model model) {
 
-		List<Album> albums = albumService.getAlbumList();
+		Set<Album> albums = albumService.getAlbumList();
 
 		model.addAttribute("albums", albums);
 
