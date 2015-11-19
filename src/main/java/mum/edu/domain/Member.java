@@ -22,7 +22,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Member {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@NotEmpty(message = "{NotEmpty}")
