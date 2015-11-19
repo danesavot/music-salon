@@ -63,7 +63,6 @@ public class AlbumController {
 
 	@RequestMapping(value = { "/", "" }, method = RequestMethod.GET)
 	public String getAlbums(Model model) {
-
 		List<Album> albums = albumService.getAlbumList();
 
 		model.addAttribute("albums", albums);

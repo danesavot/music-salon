@@ -12,15 +12,6 @@
 		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
 	</definition>
 
-	<definition name="freelancerLayout"
-		template="/WEB-INF/tiles/template/freelancerLayout.jsp">
-		<put-attribute name="title" value="Crema - Crema of the crop" />
-		<put-attribute name="freelancerNavigation"
-			value="/WEB-INF/tiles/template/freelancerNavigation.jsp" />
-		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
-	</definition>
-
 	<definition name="welcome" extends="baseLayout">
 		<put-attribute name="title" value="Welcome" />
 		<put-attribute name="body" value="/WEB-INF/views/welcome.jsp" />
@@ -31,11 +22,6 @@
 		<put-attribute name="body" value="/WEB-INF/views/signup.jsp" />
 	</definition>
 
-	<definition name="create_job" extends="baseLayout">
-		<put-attribute name="title" value="Products" />
-		<put-attribute name="body" value="/WEB-INF/views/create_job.jsp" />
-	</definition>
-
 	<definition name="login" extends="baseLayout">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
@@ -44,30 +30,6 @@
 	<definition name="productNotFound" extends="baseLayout">
 		<put-attribute name="title" value="Product Exception" />
 		<put-attribute name="body" value="/WEB-INF/views/productNotFound.jsp" />
-	</definition>
-	<definition name="locateFreelanc" extends="baseLayout">
-		<put-attribute name="title" value="locate Freelancer" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/locateFreelancer.jsp" />
-	</definition>
-	<definition name="addMember" extends="baseLayout">
-		<put-attribute name="title" value="Sign up" />
-		<put-attribute name="body" value="/WEB-INF/views/addMember.jsp" />
-	</definition>
-
-	<definition name="newFreelancer" extends="baseLayout">
-		<put-attribute name="title" value="Sign up" />
-		<put-attribute name="body" value="/WEB-INF/views/newFreelancer.jsp" />
-	</definition>
-
-	<definition name="freelancer" extends="baseLayout">
-		<put-attribute name="title" value="Sign up" />
-		<put-attribute name="body" value="/WEB-INF/views/freelancer.jsp" />
-	</definition>
-
-	<definition name="freelancers" extends="baseLayout">
-		<put-attribute name="title" value="Sign up" />
-		<put-attribute name="body" value="/WEB-INF/views/freelancers.jsp" />
 	</definition>
 
 	<definition name="newAlbum" extends="baseLayout">

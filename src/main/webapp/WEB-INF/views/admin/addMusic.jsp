@@ -54,22 +54,21 @@
 						<form:errors path="writer" cssStyle="color : red;" />
 					</p>
 
-					<p>
-						Album:
-						<form:select path="album.id" items="${albumList}" itemValue="id"
-							itemLabel="name" />
-						<a href="../albums/new"> Add a new Album</a>
-						<form:errors path="album" cssStyle="color : red;" />
-					</p>
+					
+<p> 
+	Album:
+	<form:select path="album.id" items="${albumList}" class="form-control" itemValue="id" itemLabel="name" />
+	<a href="/MusicSalon/albums/new"> Add a new Album</a>	
+	<form:errors path="album" cssStyle="color : red;" />
+</p>
 
-					<p>
-						Category:
-
-						<form:select path="categoryList" multiple="true" size="2"
-							items="${categoryList}" itemValue="id" itemLabel="name" />
-						<a href="../categories/new"> Add a new Category</a>
-						<form:errors path="categoryList" cssStyle="color : red;" />
-					</p>
+<p>
+	Category:
+	
+	<form:select path="categoryList" multiple="true" class="form-control" size="2" items="${categoryList}" itemValue="id" itemLabel="name" />
+	<a href="/MusicSalon/categories/new"> Add a new Category</a>
+	<form:errors path="categoryList" cssStyle="color : red;" />
+</p>
 
 					<input class="btn btn-primary btn-block btn-flat" type="submit"
 						value='<spring:message code="button.create"/>'>

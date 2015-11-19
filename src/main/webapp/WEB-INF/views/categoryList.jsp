@@ -12,12 +12,12 @@
 	<table>
 	<c:forEach var="category" items="${category}">
 	<tr>
-		<td><a href="categories/${category.id}">${category.name}</a></td>
+		<td><a href="/MusicSalon/categories/${category.id}">${category.name}</a></td>
 		<td><!-- <a href="categories/${category.id}">edit</a> --></td>
 	</tr>
 	</c:forEach>
 	</table>
 	
-	<a href="categories/new"> Add a new Category</a>
+	<a href="/MusicSalon/categories/new"> Add a new Category</a>
 </body>
 </html>

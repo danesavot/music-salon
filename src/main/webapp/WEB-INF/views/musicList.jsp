@@ -9,9 +9,20 @@
 </head>
 <body>
 	<h1>Musics List</h1>
-	<table>
-	<c:forEach var="music" items="${musicList}">
+	<table class="table table-striped table-hover">
+	<c:forEach var="music" items="${musicList}" varStatus="index">
+	
 	<tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Singer</th>
+      <th>Composer</th>
+      <th>Writer</th>
+      <th></th>
+    </tr>
+	
+	<tr>
+		<td>${index.count}</td>
 		<td>${music.title}</td>
 	</tr>
 	<tr>
@@ -24,14 +35,14 @@
 		<td>${music.writer}</td>
 	</tr>
 	<tr>	
-		<td><a href="music/${music.id}">Detail</a></td>
+		<td><a href="/MusicSalon/music/${music.id}">Detail</a></td>
 	</tr>
 	<tr>
-		<td><a href="addFavorite/${music.id}" >Add To Favorites</a></td>
+		<td><a href="/MusicSalon/addFavorite/${music.id}" >Add To Favorites</a></td>
 	</tr>
 	</c:forEach>
 	</table>
 	
-	<a href="music/new"> Add a new Music</a>
+	<a href="/MusicSalon/music/new"> Add a new Music</a>
 </body>
 </html>

@@ -57,6 +57,7 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect
 				</prop>
 				<prop key="connection.pool_size">1</prop>
+				<prop key="hibernate.hbm2ddl.import_files">populate.sql</prop>
 				<!-- need to remove this otherwise transaction will not work -->
 				<!-- <prop key="hibernate.current_session_context_class">thread</prop> -->
 				<prop key="hibernate.show_sql">true</prop>

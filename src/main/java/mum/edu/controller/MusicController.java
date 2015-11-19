@@ -1,12 +1,16 @@
 package mum.edu.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,6 +34,9 @@ import mum.edu.service.MusicService;
 @RequestMapping(value="/music")
 public class MusicController {
 
+	@Value("${server.upload.music.path}")
+	private String musicPath;
+	
 	@Autowired
 	private MusicService musicService;
 	
@@ -39,8 +47,18 @@ public class MusicController {
 	private CategoryService categoryService;
 	
 	@RequestMapping(value={ "/", "" }, method=RequestMethod.GET)
-	public String getAll(Model model) {
-		model.addAttribute("musicList", musicService.getAll());
+	public String getAll(Model model, @RequestParam(value="album", required = false) Long albumID) {
+	
+		List<Music> musics = new ArrayList<>();
+		
+		if (albumID == null) {
+			musics = musicService.getAll();
+		}else {
+			musics= musicService.getMusicList(albumID);
+		}
+		
+		model.addAttribute("musicList",musics);
+		
 		return "musicList";
 	}
 
@@ -57,7 +75,9 @@ public class MusicController {
 		if (!result.hasErrors()){
 			MultipartFile file = music.getFile();
 			uploadFileHandler(music.getTitle(), file);
+			//String filePath = musicPath + File.separator + file.getOriginalFilename();
 			music.setFileName(file.getOriginalFilename());
+			
 			Album album = albumService.getAlbum(music.getAlbum().getId());
 			Set<Category> categoryList = new HashSet<Category>();
 			Set<Category> postCategories = music.getCategoryList();
@@ -104,13 +124,15 @@ public class MusicController {
             try {
  
                 // Creating the directory to store file
-                String rootPath = System.getProperty("user.dir");
+                //String rootPath = System.getProperty("user.dir");
+            	String rootPath = musicPath;
+                
                 File dir = new File(rootPath + File.separator);
                 if (!dir.exists())
                     dir.mkdirs();
  
                 // Create the file on server
-                File serverFile = new File(dir.getAbsolutePath()
+                File serverFile = new File(rootPath
                         + File.separator + file.getOriginalFilename());
                 
                 file.transferTo(serverFile);
