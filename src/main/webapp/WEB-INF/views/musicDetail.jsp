@@ -42,7 +42,7 @@
 
  	<tr>
 		<td>Album:</td>
-		<td><a href="albums/${music.album.id}">${music.album.name}</a></td>
+		<td><a href="/MusicSalon/music?album=${music.album.id}">${music.album.name}</a></td>
 		<td></td>
 	</tr>
 
@@ -54,7 +54,7 @@
 
 	<c:forEach var="category" items="${music.categoryList}">
 	<tr>
-		<td><a href="category/${category.id}">${category.name}</a></td>
+		<td><a href="/MusicSalon/categories/${category.id}">${category.name}</a></td>
 		<td></td>
 	</tr>
 	</c:forEach>

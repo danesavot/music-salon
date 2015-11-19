@@ -27,11 +27,11 @@
 		<td>${music.singer}</td>
 		<td>${music.composer}</td>
 		<td>${music.writer}</td>
-		<td><a href="music/${music.id}">Detail</a></td>
+		<td><a href="/MusicSalon/music/${music.id}">Detail</a></td>
 	</tr>
 	</c:forEach>
 	</table>
 	
-	<a href="music/new"> Add a new Music</a>
+	<a href="/MusicSalon/music/new"> Add a new Music</a>
 </body>
 </html>
