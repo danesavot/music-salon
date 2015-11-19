@@ -44,8 +44,8 @@
 	</bean>
 
 	<mvc:resources location="/resources/" mapping="/resources/**" />
-	<mvc:resources location="file:///C:/music-salon/album/" mapping="/music/file/**" />
-	<mvc:resources location="file:///C:/music-salon/album/" mapping="/imagealbum/**" />
+	<mvc:resources location="file:///${server.upload.album.path}" mapping="/music/file/**" />
+	<mvc:resources location="file:///${server.upload.music.path}" mapping="/imagealbum/**" />
 	<mvc:interceptors>
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 			<property name="paramName" value="language" />
