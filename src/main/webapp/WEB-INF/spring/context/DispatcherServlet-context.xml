@@ -39,6 +39,8 @@
 	</bean>
 
 	<mvc:resources location="/resources/" mapping="/resources/**" />
+	<mvc:resources location="file:///tmp/music/" mapping="/music/file/**" />
+	
 	<mvc:interceptors>
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 			<property name="paramName" value="language" />

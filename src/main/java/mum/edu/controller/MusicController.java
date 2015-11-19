@@ -7,6 +7,8 @@ import java.util.Set;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,6 +31,9 @@ import mum.edu.service.MusicService;
 @RequestMapping(value="/music")
 public class MusicController {
 
+	@Value("${server.upload.music.path}")
+	private String musicPath;
+	
 	@Autowired
 	private MusicService musicService;
 	
@@ -57,7 +62,9 @@ public class MusicController {
 		if (!result.hasErrors()){
 			MultipartFile file = music.getFile();
 			uploadFileHandler(music.getTitle(), file);
+			//String filePath = musicPath + File.separator + file.getOriginalFilename();
 			music.setFileName(file.getOriginalFilename());
+			
 			Album album = albumService.getAlbum(music.getAlbum().getId());
 			Set<Category> categoryList = new HashSet<Category>();
 			Set<Category> postCategories = music.getCategoryList();
@@ -104,13 +111,15 @@ public class MusicController {
             try {
  
                 // Creating the directory to store file
-                String rootPath = System.getProperty("user.dir");
+                //String rootPath = System.getProperty("user.dir");
+            	String rootPath = musicPath;
+                
                 File dir = new File(rootPath + File.separator);
                 if (!dir.exists())
                     dir.mkdirs();
  
                 // Create the file on server
-                File serverFile = new File(dir.getAbsolutePath()
+                File serverFile = new File(rootPath
                         + File.separator + file.getOriginalFilename());
                 
                 file.transferTo(serverFile);

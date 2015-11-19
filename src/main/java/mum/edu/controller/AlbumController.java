@@ -65,7 +65,6 @@ public class AlbumController {
 	public String getAlbums(Model model) {
 
 		Set<Album> albums = albumService.getAlbumList();
-
 		model.addAttribute("albums", albums);
 
 		return "albums";

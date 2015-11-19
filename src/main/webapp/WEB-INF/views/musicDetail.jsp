@@ -9,29 +9,48 @@
 </head>
 <body>
 	<h1>Music Detail</h1>
+
+<object width="300" height="42">
+<param name="src" value="${music.fileName}">
+<param name="autoplay" value="false">
+<param name="controller" value="true">
+<param name="bgcolor" value="#FFFFFF">
+<embed src="/MusicSalon/music/file/${music.fileName}" autostart="false" loop="false" width="300" height="80" controller="true">
+</object>
+	
 	<table>
 	<tr>
+		<td>Title:</td>
 		<td>${music.title}</td>
 		<td></td>
 	</tr>
 	<tr>
+		<td>Singer:</td>
 		<td>${music.singer}</td>
 		<td></td>
 	</tr>
 	<tr>
+		<td>Composer:</td>
 		<td>${music.composer}</td>
 		<td></td>
 	</tr>
 	<tr>
+		<td>Writer:</td>
 		<td>${music.writer}</td>
 		<td></td>
 	</tr>
-	<!--
+
  	<tr>
-		<td>${music.album}</td>
+		<td>Album:</td>
+		<td><a href="albums/${music.album.id}">${music.album.name}</a></td>
 		<td></td>
 	</tr>
-	 -->
+
+ 	<tr>
+		<td>Categories:</td>
+		<td></td>
+		<td></td>
+	</tr>
 
 	<c:forEach var="category" items="${music.categoryList}">
 	<tr>
@@ -39,15 +58,8 @@
 		<td></td>
 	</tr>
 	</c:forEach>
+	
 	</table>
 	
-<object width="300" height="42">
-<param name="src" value="kalimba.mp3">
-<param name="autoplay" value="false">
-<param name="controller" value="true">
-<param name="bgcolor" value="#FFFFFF">
-<embed src="kalimba.mp3" autostart="false" loop="false" width="300" height="42" controller="true">
-</object>
-
 </body>
 </html>
