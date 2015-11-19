@@ -10,34 +10,26 @@
 <body>
 	<h1>Musics List</h1>
 	<table class="table table-striped table-hover">
-	<c:forEach var="music" items="${musicList}" varStatus="index">
-	
 	<tr>
       <th>#</th>
       <th>Title</th>
       <th>Singer</th>
       <th>Composer</th>
       <th>Writer</th>
+      <th>Details</th>
+      <th>Favorite</th>
       <th></th>
     </tr>
+
+	<c:forEach var="music" items="${musicList}" varStatus="index">
 	
 	<tr>
 		<td>${index.count}</td>
 		<td>${music.title}</td>
-	</tr>
-	<tr>
 		<td>${music.singer}</td>
-	</tr>
-	<tr>	
 		<td>${music.composer}</td>
-	</tr>
-	<tr>	
 		<td>${music.writer}</td>
-	</tr>
-	<tr>	
 		<td><a href="/MusicSalon/music/${music.id}">Detail</a></td>
-	</tr>
-	<tr>
 		<td><a href="/MusicSalon/addFavorite/${music.id}" >Add To Favorites</a></td>
 	</tr>
 	</c:forEach>
