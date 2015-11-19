@@ -1,5 +1,6 @@
 package mum.edu.service;
 
+import java.util.List;
 import java.util.Set;
 
 import mum.edu.domain.Album;
@@ -12,7 +13,7 @@ public interface MusicService {
 
 	public abstract void addNewMusic(Music music, Album album, Category category);
 	
-	public abstract Set<Music> getAll();
+	public abstract List<Music> getAll();
 
 	public abstract Set<Music> getMusicList(Category category);
 	

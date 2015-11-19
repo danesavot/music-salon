@@ -1,6 +1,6 @@
 package mum.edu.service;
 
-import java.util.Set;
+import java.util.List;
 
 import mum.edu.domain.Category;
 
@@ -8,7 +8,7 @@ public interface CategoryService {
 
 	public abstract void addNewCategory(Category category);
 	
-	public abstract Set<Category> getCategoryList();
+	public abstract List<Category> getCategoryList();
 	
 	public abstract Category getCategory(long id);
 

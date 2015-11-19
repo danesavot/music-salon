@@ -40,7 +40,7 @@ public class MusicServiceImpl implements MusicService{
 	}
 	
 	@Override
-	public Set<Music> getAll() {
+	public List<Music> getAll() {
 		return musicDao.getAll();
 	}
 	

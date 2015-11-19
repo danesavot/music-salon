@@ -1,7 +1,7 @@
 package mum.edu.controller;
 
 import java.io.File;
-import java.util.Set;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -64,7 +64,7 @@ public class AlbumController {
 	@RequestMapping(value = { "/", "" }, method = RequestMethod.GET)
 	public String getAlbums(Model model) {
 
-		Set<Album> albums = albumService.getAlbumList();
+		List<Album> albums = albumService.getAlbumList();
 
 		model.addAttribute("albums", albums);
 
