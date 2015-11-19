@@ -32,6 +32,5 @@
 	</c:forEach>
 	</table>
 	
-	<a href="/MusicSalon/music/new"> Add a new Music</a>
 </body>
 </html>
