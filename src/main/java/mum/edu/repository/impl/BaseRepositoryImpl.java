@@ -2,7 +2,9 @@ package mum.edu.repository.impl;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -47,8 +49,9 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T>  {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<T> getAll() {
-		return sessionFactory.getCurrentSession().createCriteria(type).list();
+	public Set<T> getAll() {
+		List<T> all = sessionFactory.getCurrentSession().createCriteria(type).list();
+		return new HashSet<T>(all);
 	}
 
 }

@@ -1,6 +1,6 @@
 package mum.edu.service.impl;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class AlbumServiceImpl implements AlbumService {
 		albumDao.add(album);
 	}
 	
-	public List<Album> getAlbumList() {
+	public Set<Album> getAlbumList() {
 		return albumDao.getAll();
 	}
 	
