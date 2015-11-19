@@ -3,8 +3,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Music Salon</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Music Salon</title>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
 					<div>
 						<spring:url var = "newAlbumURL" value="/albums" />
 						<form:form modelAttribute="newAlbum" action="${newAlbumURL}"
-							method="post">
+							method="post" enctype="multipart/form-data">
 							<fieldset style="width: 350px; margin: auto">
 								<c:if test="${not empty error}">
 									<div class="alert alert-danger">
@@ -25,6 +25,11 @@
 								<legend>
 									<spring:message code="newAlbum.legend" />
 								</legend>
+								
+								<p>
+									<form:input id="photo" path="photo" type="file" />
+								</p>
+								
 								<p>
 									<form:input id="name" placeholder="Name" class="form-control" path="name" type="text" />
 									<form:errors path="name" cssStyle="color : red;" />

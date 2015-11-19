@@ -1,6 +1,7 @@
 package mum.edu.service.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public class MusicServiceImpl implements MusicService{
 	@Override
 	public void addNewMusic(Music music, Album album, Category category){
 		music.setAlbum(album);
-		List<Category> categories =  music.getCategoryList();
+		Set<Category> categories =  music.getCategoryList();
 		
 		categories.add(category);
 		music.setCategoryList(categories);
@@ -44,7 +45,7 @@ public class MusicServiceImpl implements MusicService{
 	}
 	
 	@Override
-	public List<Music> getMusicList(Category category) {
+	public Set<Music> getMusicList(Category category) {
 		return musicDao.getMusicList(category);
 	}
 	

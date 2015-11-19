@@ -80,8 +80,8 @@
 		<put-attribute name="body" value="/WEB-INF/views/albums.jsp" />
 	</definition>
 
-	<!-- for music pages -->
-	<definition name="category" extends="baseLayout">
+	<!-- for music pages, name is from controller -->
+	<definition name="categoryList" extends="baseLayout">
 		<put-attribute name="title" value="Caterogy List" />
 		<put-attribute name="body" value="/WEB-INF/views/categoryList.jsp" />
 	</definition>
@@ -102,7 +102,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin/addMusic.jsp" />
 	</definition>
 
-	<definition name="music" extends="baseLayout">
+	<definition name="musicList" extends="baseLayout">
 		<put-attribute name="title" value="Music List" />
 		<put-attribute name="body" value="/WEB-INF/views/musicList.jsp" />
 	</definition>

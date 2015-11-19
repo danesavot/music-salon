@@ -18,7 +18,9 @@
 
 	<mvc:annotation-driven />
 	<context:component-scan base-package="mum.edu.controller" />
-
+	
+	<context:property-placeholder location="classpath:fileupload.properties" />
+	
 	<aop:aspectj-autoproxy />
 
 	<bean
@@ -42,6 +44,7 @@
 	</bean>
 
 	<mvc:resources location="/resources/" mapping="/resources/**" />
+	<mvc:resources location="file:///C:/music-salon/album/" mapping="/imagealbum/**" />
 	<mvc:interceptors>
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 			<property name="paramName" value="language" />

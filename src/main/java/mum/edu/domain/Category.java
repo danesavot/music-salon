@@ -1,7 +1,7 @@
 package mum.edu.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,27 +9,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@NotEmpty(message = "{NotEmpty}")
 	private String name;
 	private boolean navigation;
 	
 	@ManyToMany(mappedBy="categoryList")
-	private List<Music> musicList = new ArrayList<Music>();
+	private Set<Music> musicList = new HashSet<Music>();
 
 	public Category() {
 		super();
 	}
 
-	public List<Music> getMusicList() {
+	public Set<Music> getMusicList() {
 		return musicList;
 	}
 
-	public void setMusicList(List<Music> musicList) {
+	public void setMusicList(Set<Music> musicList) {
 		this.musicList = musicList;
 	}
 

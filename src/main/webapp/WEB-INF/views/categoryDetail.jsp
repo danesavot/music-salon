@@ -4,7 +4,6 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<title>Categories Detail</title>
 </head>
 <body>
@@ -22,6 +21,6 @@
 	</c:forEach>
 	</table>
 	
-	<a href="../addMusic"> Add a new Music </a>
+	<a href="../music/new"> Add a new Music </a>
 </body>
 </html>

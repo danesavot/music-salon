@@ -47,8 +47,9 @@ public abstract class BaseRepositoryImpl<T> implements BaseRepository<T>  {
 	
 	@SuppressWarnings("unchecked")
 	@Override
+
 	public List<T> getAll() {
-		return sessionFactory.getCurrentSession().createCriteria(type).list();
+		return sessionFactory.getCurrentSession().createQuery("from " + type.getName()).list();
 	}
 
 }

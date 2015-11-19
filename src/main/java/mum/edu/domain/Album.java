@@ -1,8 +1,8 @@
 package mum.edu.domain;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -13,9 +13,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
+
+import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Album {
@@ -26,17 +30,27 @@ public class Album {
 	@NotEmpty(message = "{NotEmpty}")
 	private String name;
 	@OneToMany(mappedBy="album", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Music> musicList = new ArrayList<Music>(); 
+	private Set<Music> musicList = new HashSet<Music>(); 
 	
 	private String publisher;
 	@Temporal(TemporalType.DATE)
 	private Date date;
+	
+	@Transient
+	@JsonIgnore
+	private MultipartFile photo;
 
+	public MultipartFile getPhoto() {
+		return photo;
+	}
+	public void setPhoto(MultipartFile photo) {
+		this.photo = photo;
+	}
 	public Album() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Album(String name, List<Music> musicList, String publisher, Date date) {
+	public Album(String name, Set<Music> musicList, String publisher, Date date) {
 		super();
 		this.name = name;
 		this.musicList = musicList;
@@ -55,10 +69,10 @@ public class Album {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Music> getMusicList() {
+	public Set<Music> getMusicList() {
 		return musicList;
 	}
-	public void setMusicList(List<Music> musicList) {
+	public void setMusicList(Set<Music> musicList) {
 		this.musicList = musicList;
 	}
 	public String getPublisher() {
