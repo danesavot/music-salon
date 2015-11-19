@@ -10,6 +10,7 @@
   <c:when test="${role == 'ROLE_USER'}">
 	<li><a href="<spring:url value="/welcome"/>"><spring:message code="header.home" /></a></li>
 	<li><a href="<spring:url value="/music"/>"><spring:message code="header.music" /></a></li>
+	<li><a href="<spring:url value="/favorite"/>"><spring:message code="header.favorite" /></a></li>
 	<li><a href="<spring:url value="/albums"/>"><spring:message code="header.album" /></a></li>
 	<li><a href="<spring:url value="/categories"/>"><spring:message code="header.category" /></a></li>
 	<li><a href="<spring:url value="/doLogout"/>"><spring:message code="header.logout" /></a></li>
@@ -17,6 +18,7 @@
   <c:when test="${role == 'ROLE_ADMIN'}">
 	<li><a href="<spring:url value="/welcome"/>"><spring:message code="header.home" /></a></li>
 	<li><a href="<spring:url value="/music"/>"><spring:message code="header.music" /></a></li>
+	<li><a href="<spring:url value="/favorite"/>"><spring:message code="header.favorite" /></a></li>
 	<li><a href="<spring:url value="/albums"/>"><spring:message code="header.album" /></a></li>
 	<li><a href="<spring:url value="/categories"/>"><spring:message code="header.category" /></a></li>
 
