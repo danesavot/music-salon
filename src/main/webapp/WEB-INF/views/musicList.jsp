@@ -13,10 +13,21 @@
 	<c:forEach var="music" items="${musicList}">
 	<tr>
 		<td>${music.title}</td>
+	</tr>
+	<tr>
 		<td>${music.singer}</td>
+	</tr>
+	<tr>	
 		<td>${music.composer}</td>
+	</tr>
+	<tr>	
 		<td>${music.writer}</td>
+	</tr>
+	<tr>	
 		<td><a href="music/${music.id}">Detail</a></td>
+	</tr>
+	<tr>
+		<td><a href="addFavorite/${music.id}" >Add To Favorites</a></td>
 	</tr>
 	</c:forEach>
 	</table>

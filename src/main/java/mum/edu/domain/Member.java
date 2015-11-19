@@ -36,8 +36,19 @@ public class Member {
 	@Valid
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Credentials credentials;
+	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL,mappedBy="member")
+	private Favorite favorite;
 
 	
+	public Favorite getFavorite() {
+		return favorite;
+	}
+
+	public void setFavorite(Favorite favorite) {
+		this.favorite = favorite;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -78,4 +89,5 @@ public class Member {
 		this.email = email;
 	}
 
+	
 }

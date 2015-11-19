@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import mum.edu.domain.Favorite;
+import mum.edu.domain.Member;
 import mum.edu.repository.FavoriteRepository;
 
 @Repository
@@ -24,5 +25,6 @@ public class FavoriteRepositoryImpl extends BaseRepositoryImpl<Favorite> impleme
 		List<Favorite> favorites = query.list();
 		return favorites;
 	}
+
 	
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import mum.edu.domain.Favorite;
+import mum.edu.domain.Member;
 import mum.edu.repository.FavoriteRepository;
 import mum.edu.service.FavoriteService;
 @Service
@@ -25,5 +26,6 @@ public class FavoriteServiceImpl implements FavoriteService {
 	public List<Favorite> getFavorites(int id) {
 		return FavoriteRepository.get(id);
 	}
+
 
 }

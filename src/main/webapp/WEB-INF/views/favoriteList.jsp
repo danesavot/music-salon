@@ -13,13 +13,15 @@
 		<c:forEach var="favorite" items="${favoriteList}">
 			<tr>
 				<td>${favorite.name}</td>
-				<c:forEach var="music" items="${favoriteList.musicList}">
-					<td><a href="music/${music.id}">Detail</a></td>
-				</c:forEach>
+					<c:forEach var="music" items="${favorite.musicList}">
+						<tr>
+						<td>&nbsp;&nbsp;${music.title}</td>
+						<td><a href="music/${music.id}">Detail</a></td>
+						</tr>
+						
+					</c:forEach>
 			</tr>
 		</c:forEach>
 	</table>
-
-	<a href="/../favourite"> Add new favorite</a>
 </body>
 </html>
