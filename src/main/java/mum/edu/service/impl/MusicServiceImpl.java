@@ -40,7 +40,7 @@ public class MusicServiceImpl implements MusicService{
 	}
 	
 	@Override
-	public Set<Music> getAll() {
+	public List<Music> getAll() {
 		return musicDao.getAll();
 	}
 	
@@ -62,6 +62,11 @@ public class MusicServiceImpl implements MusicService{
 	@Override
 	public void deleteMusic(Music music){
 		musicDao.delete(music);
+	}
+
+	@Override
+	public List<Music> getMusicList(Long albumID) {
+		return musicDao.getMusicList(albumID);
 	}
 
 }

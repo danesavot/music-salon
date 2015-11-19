@@ -51,16 +51,17 @@ public class MemberController {
 	 * @return
 	 * redirecting to login using PRG
 	 */
-	@RequestMapping(value = "/add/{memberType}", method = RequestMethod.POST)
-	public String processAddNewMemberForm(@PathVariable String memberType,Model model, @ModelAttribute("newMember") @Valid Member memberToBeAdded, BindingResult result, HttpServletRequest request) {
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
+	public String processAddNewMemberForm(Model model, @ModelAttribute("newMember") @Valid Member memberToBeAdded, BindingResult result, HttpServletRequest request) {
 	
-		model.addAttribute("memberType", memberType);
+		System.out.println("Inside Add Member");
+		//model.addAttribute("memberType", "ROLE_USER");
 		
 		if(result.hasErrors()) {
-			return "addMember";
+			return "signup";
 		}
 
-		memberToBeAdded.getCredentials().setAuthority(memberType);
+		memberToBeAdded.getCredentials().setAuthority("ROLE_USER");
 		memberToBeAdded.getCredentials().setEnabled(true);
 		
 		memberService.add(memberToBeAdded);

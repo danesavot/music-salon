@@ -40,8 +40,9 @@ public class HomeController {
 	 * return a view to signup page
 	 */
 	@RequestMapping({ "/signup" })
-	public String signup(Model model) {
+	public String signup(@ModelAttribute("newMember") Member newMember,Model model) {
 
+//		model.addAttribute("memberType", memberType);
 		return "signup";
 	}
 	/**

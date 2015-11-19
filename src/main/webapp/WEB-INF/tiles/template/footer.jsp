@@ -7,6 +7,4 @@
 </form:select> --%>
 <a href="?language=ua">Ukrainian</a>
 |
-<a href="?language=ar">Arabic</a>
-|
 <a href="?language=en">English</a>

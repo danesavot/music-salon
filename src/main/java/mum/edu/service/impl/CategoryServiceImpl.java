@@ -1,6 +1,6 @@
 package mum.edu.service.impl;
 
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 	
 	@Override
-	public Set<Category> getCategoryList() {
+	public List<Category> getCategoryList() {
 		return categoryDao.getAll();
 	}
 	

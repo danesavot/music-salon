@@ -9,9 +9,20 @@
 </head>
 <body>
 	<h1>Musics List</h1>
-	<table>
-	<c:forEach var="music" items="${musicList}">
+	<table class="table table-striped table-hover">
+	<c:forEach var="music" items="${musicList}" varStatus="index">
+	
 	<tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Singer</th>
+      <th>Composer</th>
+      <th>Writer</th>
+      <th></th>
+    </tr>
+	
+	<tr>
+		<td>${index.count}</td>
 		<td>${music.title}</td>
 		<td>${music.singer}</td>
 		<td>${music.composer}</td>

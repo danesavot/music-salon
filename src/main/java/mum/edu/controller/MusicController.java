@@ -1,7 +1,9 @@
 package mum.edu.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.Valid;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -44,8 +47,18 @@ public class MusicController {
 	private CategoryService categoryService;
 	
 	@RequestMapping(value={ "/", "" }, method=RequestMethod.GET)
-	public String getAll(Model model) {
-		model.addAttribute("musicList", musicService.getAll());
+	public String getAll(Model model, @RequestParam(value="album", required = false) Long albumID) {
+	
+		List<Music> musics = new ArrayList<>();
+		
+		if (albumID == null) {
+			musics = musicService.getAll();
+		}else {
+			musics= musicService.getMusicList(albumID);
+		}
+		
+		model.addAttribute("musicList",musics);
+		
 		return "musicList";
 	}
 
