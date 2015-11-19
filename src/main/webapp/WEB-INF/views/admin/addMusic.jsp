@@ -11,7 +11,7 @@
 
 	<div class="container">
 		<div class="row">
-			<spring:url var="newMusicURL" value="/music" />
+			<spring:url var="newMusicURL" value="/music/new" />
 			<form:form modelAttribute="music" action="${newMusicURL}"
 				method="post" enctype="multipart/form-data">
 				<fieldset style="width: 350px; margin: auto">
@@ -57,7 +57,10 @@
 					
 <p> 
 	Album:
-	<form:select path="album.id" items="${albumList}" class="form-control" itemValue="id" itemLabel="name" />
+	<form:select path="album.id" class="form-control">
+		<%-- <form:option value="0" label=""></form:option> --%>
+		<form:options items="${albumList}" itemValue="id" itemLabel="name"/>
+	</form:select>
 	<a href="/MusicSalon/albums/new"> Add a new Album</a>	
 	<form:errors path="album" cssStyle="color : red;" />
 </p>
@@ -65,7 +68,10 @@
 <p>
 	Category:
 	
-	<form:select path="categoryList" multiple="true" class="form-control" size="2" items="${categoryList}" itemValue="id" itemLabel="name" />
+	<form:select path="categoryList" multiple="true" class="form-control" size="2">
+		<%-- <form:option value="0" label=""></form:option> --%>
+		<form:options items="${categoryList}" itemValue="id" itemLabel="name"/>
+	</form:select>
 	<a href="/MusicSalon/categories/new"> Add a new Category</a>
 	<form:errors path="categoryList" cssStyle="color : red;" />
 </p>
