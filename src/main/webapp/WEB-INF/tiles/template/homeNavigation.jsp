@@ -19,21 +19,13 @@
 	<li><a href="<spring:url value="/music"/>"><spring:message code="header.music" /></a></li>
 	<li><a href="<spring:url value="/albums"/>"><spring:message code="header.album" /></a></li>
 	<li><a href="<spring:url value="/categories"/>"><spring:message code="header.category" /></a></li>
-<<<<<<< HEAD
-	
-=======
->>>>>>> 2456019bcea3a007fece2bc6ded47dc750ca9d43
+
 	<li class="dropdown">
     	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
           <li><a href="<spring:url value="/albums/new"/>"><spring:message code="header.admin.newAlbum" /></a></li>
-<<<<<<< HEAD
           <li><a href="<spring:url value="/categories/new"/>"><spring:message code="header.admin.newCategory" /></a></li>
           <li><a href="<spring:url value="/music/new"/>"><spring:message code="header.admin.newMusic" /></a></li>
-=======
-          <li><a href="<spring:url value="/music/new"/>"><spring:message code="header.admin.newMusic" /></a></li>
-          <li><a href="<spring:url value="/categories/new"/>"><spring:message code="header.admin.newCategory" /></a></li>
->>>>>>> 2456019bcea3a007fece2bc6ded47dc750ca9d43
         </ul>
     </li>		
 	<li><a href="<spring:url value="/doLogout"/>"><spring:message code="header.logout" /></a></li>
