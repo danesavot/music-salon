@@ -27,4 +27,9 @@ public class MusicRepositoryImpl extends BaseRepositoryImpl<Music> implements Mu
 		return new HashSet<Music>(musicList);
 	}
 
+	@Override
+	public List<Music> getMusicList(Long albumID) {
+		return sessionFactory.getCurrentSession().createQuery("from Music m where m.album.id=" + albumID).list();
+	}
+
 }

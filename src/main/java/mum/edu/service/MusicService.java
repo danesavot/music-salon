@@ -17,6 +17,8 @@ public interface MusicService {
 
 	public abstract Set<Music> getMusicList(Category category);
 	
+	public abstract List<Music> getMusicList(Long albumID);
+	
 	public abstract Music getMusic(long id);
 
 	public abstract void updateMusic(Music music);

@@ -64,4 +64,9 @@ public class MusicServiceImpl implements MusicService{
 		musicDao.delete(music);
 	}
 
+	@Override
+	public List<Music> getMusicList(Long albumID) {
+		return musicDao.getMusicList(albumID);
+	}
+
 }

@@ -13,7 +13,7 @@
 		<div class="row">
 			<form action="<spring:url value="/albums"></spring:url>"
 				method="post">
-
+				<spring:url value="/music" var="musichListURL"></spring:url>
 				<c:forEach var="album" items="${albums}">
 
 					<div class="col-sm-3 col-xs-12">
@@ -21,8 +21,8 @@
 							alt="music theme">
 						<div class="albumdetail">
 							<h5>${album.name}</h5>
-							<a href="#" class="listen" data-toggle="modal"
-								data-target="#albumdetail"><span
+							<a href="${musichListURL}?album=${album.id}" class="listen" data-toggle="modal"
+								><span
 								class="glyphicon glyphicon-headphones"></span> Listen Song</a>
 						</div>
 					</div>
