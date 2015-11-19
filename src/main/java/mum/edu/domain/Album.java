@@ -14,7 +14,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import javax.persistence.Transient;
+
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Album {
@@ -30,7 +35,17 @@ public class Album {
 	private String publisher;
 	@Temporal(TemporalType.DATE)
 	private Date date;
+	
+	@Transient
+	@JsonIgnore
+	private MultipartFile photo;
 
+	public MultipartFile getPhoto() {
+		return photo;
+	}
+	public void setPhoto(MultipartFile photo) {
+		this.photo = photo;
+	}
 	public Album() {
 		super();
 		// TODO Auto-generated constructor stub
