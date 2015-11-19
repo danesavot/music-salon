@@ -24,7 +24,6 @@ public class Favorite {
 	private Member member;
 	
 	@OneToMany
-	@JoinColumn(name = "music_id")
 	List<Music> musicList = new ArrayList<>();
 	
 	public Favorite(String name, Member member) {
@@ -65,6 +64,14 @@ public class Favorite {
 
 	public void setMember(Member member) {
 		this.member = member;
+	}
+
+	public List<Music> getMusicList() {
+		return musicList;
+	}
+
+	public void setMusicList(List<Music> musicList) {
+		this.musicList = musicList;
 	}
 	
 	

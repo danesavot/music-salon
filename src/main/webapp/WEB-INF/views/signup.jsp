@@ -1,48 +1,64 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="security"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome</title>
+<title>Products</title>
 </head>
 <body>
-	<section>
-		<div>
-			<div class="container">
-				<h1>${greeting}</h1>
-				<p>${tagline}</p>
+	<section class="container">
+		<spring:url var = "addMember" value="/members/addUser" />
+		<form:form  modelAttribute="newMember" action="${addMember}"   >
+			<fieldset  style="width: 350px; margin: auto">
+								
 				<p>
-					<security:authorize access="isAuthenticated()">
-  					Welcome  <security:authentication property="principal.username" />
-					</security:authorize>
-			</div>
+					<label for="firstName"><spring:message code="addmember.fname"></spring:message></label>
+					<div>
+						<form:input id="firstName" path="firstName"  class="form-control" type="text"/>
+						<form:errors path="firstName" cssStyle="color : red;" />
+					</div>
+				</p>
 
-			<div class="signup">
-				<div style = "float:left">
-					<p><img src='<spring:url value="/resources/images/person.svg"/>' height="120px" width="120px"/></p>
-					<h3><spring:message code="signup.freelancer" /> </h3>
-					
-					<p><a href="<spring:url value="/signupMember/freelancer"/>"> 
-						<input type="button" id="Cancel" class="" value='<spring:message code="signup" />'/>
-					</a></p> 
-					
-				</div>
-				<div style = "float:right">
-					<p><img src='<spring:url value="/resources/images/person.svg"/>' height="120px" width="120px"/></p>
-					<h3><spring:message code="signup.customer" /></h3>
-					
-					<p><a href="<spring:url value="/signupMember/customer"/>"> 
-						<input type="button" id="Cancel" class="" value='<spring:message code="signup" />'/>
-					</a></p> 
-					
-				</div>				
+				<p>
+					<label for="lastName"><spring:message code="addmember.lname"></spring:message></label>
+					<div>
+						<form:input id="lastName" path="lastName"  class="form-control" type="text"/>
+						<form:errors path="lastName" cssStyle="color : red;"/>
+					</div>
+				</p>
 
-			</div>
-		</div>
+				<p>
+					<label for="email"><spring:message code="addmember.email"></spring:message></label>
+					<div>
+						<form:input id="email" path="email"  class="form-control" type="text"/>
+						<form:errors path="email" cssStyle="color : red;"/>
+					</div>
+				</p>
+				
+				<p>
+					<label for="username"><spring:message code="addmember.username"></spring:message></label>
+					<div>
+						<form:input id="username" path="credentials.username"  class="form-control" type="text"/>
+						<form:errors path="credentials.username" cssStyle="color : red;"/>
+					</div>
+				</p>
+
+				<p>
+					<label for="email"><spring:message code="addmember.password"></spring:message></label>
+					<div>
+						<form:input id="password" path="credentials.password"  class="form-control" type="password"/>
+						<form:errors path="credentials.password" cssStyle="color : red;"/>
+					</div>
+				</p>				 
+
+				<p>
+					<input class="btn btn-primary btn-block btn-flat" type="submit" id="btnAdd" value ='<spring:message code="signup" />'/>
+				</p>
+				
+			</fieldset>
+		</form:form>
 	</section>
-
 </body>
 </html>
