@@ -16,13 +16,10 @@
       <th>Singer</th>
       <th>Composer</th>
       <th>Writer</th>
-      <th>Details</th>
+      <th>Detail</th>
       <th>Favorite</th>
-      <th></th>
-    </tr>
-
+    </tr>	
 	<c:forEach var="music" items="${musicList}" varStatus="index">
-	
 	<tr>
 		<td>${index.count}</td>
 		<td>${music.title}</td>
@@ -35,6 +32,5 @@
 	</c:forEach>
 	</table>
 	
-	<a href="/MusicSalon/music/new"> Add a new Music</a>
 </body>
 </html>

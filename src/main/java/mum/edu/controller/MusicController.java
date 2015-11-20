@@ -62,14 +62,22 @@ public class MusicController {
 		return "musicList";
 	}
 
+	@ModelAttribute("albumList")
+	public List<Album> getAlbumList() {
+		return albumService.getAlbumList();
+	}
+	
+	@ModelAttribute("categoryList")
+	public List<Category> getCategoryList() {
+		return categoryService.getCategoryList();
+	}	
+	
 	@RequestMapping(value="/new", method=RequestMethod.GET)
 	public String addMusic(@ModelAttribute("music") Music music, Model model) {
-		model.addAttribute("albumList", albumService.getAlbumList());
-		model.addAttribute("categoryList", categoryService.getCategoryList());
 		return "addMusic";
 	}
 	
-	@RequestMapping(value={ "/", "" }, method=RequestMethod.POST)
+	@RequestMapping(value={ "/new", "" }, method=RequestMethod.POST)
 	public String add(Model model, @ModelAttribute("music") @Valid Music music, BindingResult result) {
 		String view = "redirect:/music";
 		if (!result.hasErrors()){

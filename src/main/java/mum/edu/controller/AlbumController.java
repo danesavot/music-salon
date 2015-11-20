@@ -34,7 +34,7 @@ public class AlbumController {
 		return "newAlbum";
 	}
 
-	@RequestMapping(value = { "/", "" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/new", "" }, method = RequestMethod.POST)
 	public String addAlbum(Model model, @ModelAttribute("newAlbum") @Valid Album album, BindingResult result,
 			HttpServletRequest request) {
 
@@ -52,7 +52,12 @@ public class AlbumController {
 				// photo.transferTo(new
 				// File(request.getSession().getServletContext().getRealPath("/resources/images/")
 				// +album.getId() + ".png"));
-				photo.transferTo(new File(albumPath.concat(album.getId() + ".png")));
+				
+                File dir = new File(albumPath + File.separator);
+                if (!dir.exists())
+                    dir.mkdirs();
+                
+				photo.transferTo(new File(albumPath + File.separator + String.valueOf(album.getId()) + ".png"));
 			} catch (Exception e) {
 				throw new RuntimeException("Product Image saving failed", e);
 			}

@@ -18,6 +18,5 @@
 	</c:forEach>
 	</table>
 	
-	<a href="/MusicSalon/categories/new"> Add a new Category</a>
 </body>
 </html>

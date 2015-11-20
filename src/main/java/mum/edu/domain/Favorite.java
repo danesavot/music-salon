@@ -24,7 +24,7 @@ public class Favorite {
 	@OneToOne
 	private Member member;
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
 	List<Music> musicList = new ArrayList<>();
 	
 	public Favorite(String name, Member member) {

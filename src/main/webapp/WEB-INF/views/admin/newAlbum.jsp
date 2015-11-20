@@ -13,7 +13,7 @@
 			<div>
 				<div>
 					<div>
-						<spring:url var = "newAlbumURL" value="/albums" />
+						<spring:url var = "newAlbumURL" value="/albums/new" />
 						<form:form modelAttribute="newAlbum" action="${newAlbumURL}"
 							method="post" enctype="multipart/form-data">
 							<fieldset style="width: 350px; margin: auto">
