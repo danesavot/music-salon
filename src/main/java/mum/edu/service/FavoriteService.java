@@ -14,6 +14,8 @@ public interface FavoriteService {
 	public void addFavorite(Favorite favorite);
 
 	public List<Favorite> getFavorites(int id);
+	
+	public void updateFavorite(Favorite favorite);
 
 
 

@@ -14,9 +14,6 @@ import mum.edu.repository.FavoriteRepository;
 @Repository
 public class FavoriteRepositoryImpl extends BaseRepositoryImpl<Favorite> implements FavoriteRepository {
 
-	@Autowired
-	protected SessionFactory sessionFactory;
-	
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Favorite> get(int id) {

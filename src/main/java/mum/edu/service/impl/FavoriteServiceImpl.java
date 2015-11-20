@@ -15,16 +15,23 @@ import mum.edu.service.FavoriteService;
 public class FavoriteServiceImpl implements FavoriteService {
 
  	@Autowired
-	private FavoriteRepository FavoriteRepository;
+	private FavoriteRepository favoriteRepository;
 	
 	@Override
 	public void addFavorite(Favorite favorite) {
-		FavoriteRepository.add(favorite);
+		favoriteRepository.add(favorite);
 	}
 
 	@Override
 	public List<Favorite> getFavorites(int id) {
-		return FavoriteRepository.get(id);
+		return favoriteRepository.get(id);
+	}
+
+	@Override
+	public void updateFavorite(Favorite favorite) {
+		// TODO Auto-generated method stub
+		favoriteRepository.update(favorite);
+		
 	}
 
 

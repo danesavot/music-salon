@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import mum.edu.domain.Favorite;
 import mum.edu.domain.Member;
+import mum.edu.domain.Music;
 import mum.edu.logging.ILogger;
 import mum.edu.logging.Logger;
 import mum.edu.service.FavoriteService;
@@ -56,15 +57,20 @@ public class FavoriteController {
 		}
 		if(member.getFavorite()==null){
 			Favorite favorit = new Favorite("Default Favorite", member);
+			favorit.addMusic(musicService.getMusic(id));
 			favoriteService.addFavorite(favorit);
 			member.setFavorite(favorit);
-			
 		}
 		else{
 		member.getFavorite().setMember(member);
 		member.getFavorite().addMusic(musicService.getMusic(id));
 		
-		favoriteService.addFavorite(member.getFavorite());
+		for (Music music : member.getFavorite().getMusicList()) {
+			if(id!=music.getId()){
+				favoriteService.updateFavorite(member.getFavorite());
+			}
+		}
+		
 		}
 		return "redirect:/music";
 
